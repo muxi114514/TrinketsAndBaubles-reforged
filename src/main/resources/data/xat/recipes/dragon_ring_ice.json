@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#I ",
+    "ICI",
+    " I "
+  ],
+  "key": {
+    "#": {
+      "item": "xat:mana_crystal"
+    },
+    "I": {
+      "item": "xat:glowing_ingot"
+    },
+    "C": {
+      "type": "xat:element",
+      "item": "xat:dragon_gem",
+      "element": "xat:ice"
+    }
+  },
+  "result": {
+    "item": "xat:dragon_ring",
+    "nbt": {
+      "Elements": {
+        "primary": "xat:ice"
+      }
+    }
+  }
+}

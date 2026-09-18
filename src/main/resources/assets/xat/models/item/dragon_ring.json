@@ -1,0 +1,62 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "xat:item/dragon_ring"
+  },
+  "display": {
+    "thirdPerson": {
+      "rotation": [
+        -90,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        1,
+        -3
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    },
+    "firstPerson": {
+      "rotation": [
+        0,
+        -135,
+        25
+      ],
+      "translation": [
+        0,
+        4,
+        2
+      ],
+      "scale": [
+        1.7,
+        1.7,
+        1.7
+      ]
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "xat:element": 0.25
+      },
+      "model": "xat:item/dragon_ring_fire"
+    },
+    {
+      "predicate": {
+        "xat:element": 0.5
+      },
+      "model": "xat:item/dragon_ring_ice"
+    },
+    {
+      "predicate": {
+        "xat:element": 0.75
+      },
+      "model": "xat:item/dragon_ring_lightning"
+    }
+  ]
+}

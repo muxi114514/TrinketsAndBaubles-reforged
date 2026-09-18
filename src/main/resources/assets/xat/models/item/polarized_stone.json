@@ -1,0 +1,147 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "xat:item/polarized_stone"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        60
+      ],
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        -60
+      ],
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        0,
+        15
+      ],
+      "translation": [
+        0,
+        4,
+        1.13
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        0,
+        -15
+      ],
+      "translation": [
+        0,
+        4,
+        1.13
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "f﻿ixed": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "xat:polarity": 0.33
+      },
+      "model": "xat:item/polarized_stone_magnet"
+    },
+    {
+      "predicate": {
+        "xat:polarity": 0.66
+      },
+      "model": "xat:item/polarized_stone_repell"
+    },
+    {
+      "predicate": {
+        "xat:polarity": 1.0
+      },
+      "model": "xat:item/polarized_stone_both"
+    }
+  ]
+}

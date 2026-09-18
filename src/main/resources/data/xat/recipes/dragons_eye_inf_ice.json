@@ -1,0 +1,40 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XS#",
+    "SDS",
+    "#S#"
+  ],
+  "key": {
+    "D": {
+      "type": "forge:partial_nbt",
+      "item": "iceandfire:dragon_skull_ice",
+      "nbt": {
+        "Stage": 5
+      }
+    },
+    "S": {
+      "item": "minecraft:diamond_sword"
+    },
+    "#": {
+      "item": "xat:glowing_gem"
+    },
+    "X": {
+      "item": "xat:glow_ring"
+    }
+  },
+  "result": {
+    "item": "xat:dragons_eye",
+    "nbt": {
+      "Elements": {
+        "primary": "xat:ice"
+      }
+    }
+  }
+}

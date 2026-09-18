@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:partial_nbt",
+      "item": "iceandfire:dragon_skull_lightning",
+      "nbt": {
+        "Stage": 5
+      }
+    },
+    {
+      "item": "xat:dragons_eye"
+    }
+  ],
+  "result": {
+    "item": "xat:dragons_eye",
+    "nbt": {
+      "Elements": {
+        "primary": "xat:lightning"
+      }
+    }
+  }
+}

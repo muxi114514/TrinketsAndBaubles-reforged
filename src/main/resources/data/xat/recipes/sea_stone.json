@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#S#",
+    "SDS",
+    "#S#"
+  ],
+  "key": {
+    "#": {
+      "tag": "minecraft:fishes"
+    },
+    "D": {
+      "item": "minecraft:prismarine_crystals"
+    },
+    "S": {
+      "item": "xat:glowing_ingot"
+    }
+  },
+  "result": {
+    "item": "xat:sea_stone"
+  }
+}

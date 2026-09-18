@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:stone"
+    },
+    {
+      "item": "xat:mana_crystal"
+    }
+  ],
+  "result": {
+    "item": "xat:mana_reagent"
+  }
+}

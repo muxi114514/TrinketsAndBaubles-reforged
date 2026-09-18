@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "*@*",
+    "#N#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:brown_wool"
+    },
+    "N": {
+      "item": "xat:mana_candy"
+    },
+    "@": {
+      "item": "xat:glowing_ingot"
+    },
+    "*": {
+      "tag": "minecraft:coals"
+    }
+  },
+  "result": {
+    "item": "xat:teddy_bear"
+  }
+}

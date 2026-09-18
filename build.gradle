@@ -1,0 +1,155 @@
+plugins {
+    id 'net.minecraftforge.gradle' version '6.+'
+    id 'org.spongepowered.mixin' version '0.7-SNAPSHOT'
+    id 'java'
+    id 'idea'
+}
+
+version = "${minecraft_version}-${mod_version}"
+group = project.group
+
+base.archivesName.set("${mod_name}")
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+java.withSourcesJar()
+
+mixin {
+    add sourceSets.main, "${mod_id}.refmap.json"
+    config "${mod_id}.mixins.json"
+}
+
+minecraft {
+    mappings channel: 'official', version: minecraft_version
+    copyIdeResources = true
+
+    if (file('src/main/resources/META-INF/accesstransformer.cfg').exists()) {
+        accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    }
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+            taskName 'Client'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+        }
+
+        server {
+            workingDirectory project.file('run')
+            taskName 'Server'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+        }
+
+        data {
+            workingDirectory project.file('run')
+            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            taskName 'Data'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+        }
+    }
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+repositories {
+    // Curios / Caelus 官方 maven
+    maven {
+        name = 'Illusive Soulworks maven'
+        url = 'https://maven.theillusivec4.top/'
+    }
+    // Patchouli / JEI 等（移植后期手册与 JEI 联动备用）
+    maven {
+        name = 'BlameJared maven'
+        url = 'https://maven.blamejared.com/'
+    }
+    // 软联动模组（IceAndFire / LycanitesMobs / FirstAid 等）后期从此拉取
+    maven {
+        name = 'CurseMaven'
+        url = 'https://cursemaven.com'
+        content { includeGroup 'curse.maven' }
+    }
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
+    // ── 硬前置：Curios（饰品栏）──
+    // 1.12 原模组靠 Baubles，且自带一套 Trinket 备用饰品栏做二选一注册；
+    // 1.20.1 统一由 Curios 承担，故 items/baubles 与 items/trinkets 两套类合并为一套。
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
+
+    // ── 软联动（仅编译期；运行时由 ModList 判断是否加载，接缝类只在对应模组存在时才被类加载）──
+    // jar 取自目标整合包 supersecret1.20.1updateRL-1.72-Hotfix，与整合包版本精确匹配
+    compileOnly fg.deobf(files('libs/firstaid-1.20.1-1.1.jar'))
+    compileOnly fg.deobf(files('libs/enhancedvisuals-1.8.33.jar'))
+    compileOnly fg.deobf(files('libs/ColdSweat-2.4.1.jar'))
+    compileOnly fg.deobf(files('libs/ThirstWasTaken-1.20.1-1.4.0.jar'))
+    compileOnly fg.deobf(files('libs/talents-1.0.4d.jar'))
+    // Elenai Dodge 2 与 Talents 的闪避经 @Pseudo mixin 按类名挂钩；Simple Difficulty / 恐怖生物 / 污秽之地 / 冰与火 / jlme
+    // 只按注册名引用效果、伤害类型与附魔，无需编译依赖
+}
+
+// Workaround for SpongePowered/MixinGradle#38
+afterEvaluate {
+    tasks.configureReobfTaskForReobfJar.mustRunAfter(tasks.compileJava)
+}
+
+jar {
+    manifest {
+        attributes([
+            'Specification-Title'     : mod_name,
+            'Specification-Vendor'    : mod_authors,
+            'Specification-Version'   : mod_version,
+            'Implementation-Title'    : project.name,
+            'Implementation-Version'  : mod_version,
+            'Implementation-Vendor'   : mod_authors,
+            'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+            'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+            'Build-On-Minecraft'      : minecraft_version
+        ])
+    }
+}
+
+jar.finalizedBy('reobfJar')
+
+sourceSets.each {
+    def dir = layout.buildDirectory.dir("sourcesSets/$it.name")
+    it.output.resourcesDir = dir
+    it.java.destinationDirectory = dir
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = 'UTF-8'
+    it.options.release.set(17)
+}
+
+processResources {
+    var expandProps = [
+        minecraft_version          : minecraft_version,
+        forge_version              : forge_version,
+        forge_version_range        : forge_version_range,
+        forge_loader_version_range : forge_loader_version_range,
+        mod_id                     : mod_id,
+        mod_name                   : mod_name,
+        mod_version                : mod_version,
+        mod_authors                : mod_authors,
+        mod_description            : mod_description,
+        mod_license                : mod_license
+    ]
+    filesMatching(['pack.mcmeta', 'META-INF/mods.toml', '*.mixins.json']) {
+        expand expandProps
+    }
+    inputs.properties(expandProps)
+}
+
+tasks.withType(GenerateModuleMetadata) {
+    enabled = false
+}

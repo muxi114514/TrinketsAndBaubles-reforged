@@ -1,0 +1,35 @@
+modLoader="javafml"
+loaderVersion="${forge_loader_version_range}"
+license="${mod_license}"
+issueTrackerURL="https://github.com/XzeroAir/Trinkets/issues"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+logoFile="logo.png"
+credits="Original mod by XzeroAir. Art/translation contributors: NyanMinecrafter, ArtsyDy, 502y, Z-tunic, Cypheriel, TheGamersBrew, KL BanYourself, Nischhelm, KameiB."
+authors="${mod_authors}"
+description='''${mod_description}'''
+
+[[dependencies.${mod_id}]]
+    modId="forge"
+    mandatory=true
+    versionRange="${forge_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[${minecraft_version}]"
+    ordering="NONE"
+    side="BOTH"
+
+# 饰品栏：1.12 的 Baubles 在 1.20.1 由 Curios 取代，为硬前置
+[[dependencies.${mod_id}]]
+    modId="curios"
+    mandatory=true
+    versionRange="[5.9.0,)"
+    ordering="AFTER"
+    side="BOTH"

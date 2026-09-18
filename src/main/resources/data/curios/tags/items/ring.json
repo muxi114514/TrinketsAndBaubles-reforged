@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "xat:glow_ring",
+    "xat:wither_ring",
+    "xat:fairy_ring",
+    "xat:dwarf_ring",
+    "xat:titan_ring",
+    "xat:goblin_ring",
+    "xat:elf_ring",
+    "xat:faelis_ring",
+    "xat:dragon_ring",
+    "xat:taurus_ring"
+  ]
+}

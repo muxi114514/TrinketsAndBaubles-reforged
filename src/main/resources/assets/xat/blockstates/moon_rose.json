@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "xat:block/moon_rose"
+    },
+    "facing=south": {
+      "model": "xat:block/moon_rose",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "xat:block/moon_rose",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "xat:block/moon_rose",
+      "y": 90
+    }
+  }
+}

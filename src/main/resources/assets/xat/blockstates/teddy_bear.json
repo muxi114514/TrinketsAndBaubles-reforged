@@ -1,0 +1,229 @@
+{
+  "variants": {
+    "facing=north,variant=normal": {
+      "model": "xat:block/teddy_bear"
+    },
+    "facing=south,variant=normal": {
+      "model": "xat:block/teddy_bear",
+      "y": 180
+    },
+    "facing=west,variant=normal": {
+      "model": "xat:block/teddy_bear",
+      "y": 270
+    },
+    "facing=east,variant=normal": {
+      "model": "xat:block/teddy_bear",
+      "y": 90
+    },
+    "facing=north,variant=rembo": {
+      "model": "xat:block/teddy_bear_rembo"
+    },
+    "facing=south,variant=rembo": {
+      "model": "xat:block/teddy_bear_rembo",
+      "y": 180
+    },
+    "facing=west,variant=rembo": {
+      "model": "xat:block/teddy_bear_rembo",
+      "y": 270
+    },
+    "facing=east,variant=rembo": {
+      "model": "xat:block/teddy_bear_rembo",
+      "y": 90
+    },
+    "facing=north,variant=scary": {
+      "model": "xat:block/teddy_bear_scary"
+    },
+    "facing=south,variant=scary": {
+      "model": "xat:block/teddy_bear_scary",
+      "y": 180
+    },
+    "facing=west,variant=scary": {
+      "model": "xat:block/teddy_bear_scary",
+      "y": 270
+    },
+    "facing=east,variant=scary": {
+      "model": "xat:block/teddy_bear_scary",
+      "y": 90
+    },
+    "facing=north,variant=shivaxi": {
+      "model": "xat:block/teddy_bear_shivaxi"
+    },
+    "facing=south,variant=shivaxi": {
+      "model": "xat:block/teddy_bear_shivaxi",
+      "y": 180
+    },
+    "facing=west,variant=shivaxi": {
+      "model": "xat:block/teddy_bear_shivaxi",
+      "y": 270
+    },
+    "facing=east,variant=shivaxi": {
+      "model": "xat:block/teddy_bear_shivaxi",
+      "y": 90
+    },
+    "facing=north,variant=bee": {
+      "model": "xat:block/teddy_bear_bee"
+    },
+    "facing=south,variant=bee": {
+      "model": "xat:block/teddy_bear_bee",
+      "y": 180
+    },
+    "facing=west,variant=bee": {
+      "model": "xat:block/teddy_bear_bee",
+      "y": 270
+    },
+    "facing=east,variant=bee": {
+      "model": "xat:block/teddy_bear_bee",
+      "y": 90
+    },
+    "facing=north,variant=panda": {
+      "model": "xat:block/teddy_bear_panda"
+    },
+    "facing=south,variant=panda": {
+      "model": "xat:block/teddy_bear_panda",
+      "y": 180
+    },
+    "facing=west,variant=panda": {
+      "model": "xat:block/teddy_bear_panda",
+      "y": 270
+    },
+    "facing=east,variant=panda": {
+      "model": "xat:block/teddy_bear_panda",
+      "y": 90
+    },
+    "facing=north,variant=artsy": {
+      "model": "xat:block/teddy_bear_artsy"
+    },
+    "facing=south,variant=artsy": {
+      "model": "xat:block/teddy_bear_artsy",
+      "y": 180
+    },
+    "facing=west,variant=artsy": {
+      "model": "xat:block/teddy_bear_artsy",
+      "y": 270
+    },
+    "facing=east,variant=artsy": {
+      "model": "xat:block/teddy_bear_artsy",
+      "y": 90
+    },
+    "facing=north,variant=twilight": {
+      "model": "xat:block/teddy_bear_twilight"
+    },
+    "facing=south,variant=twilight": {
+      "model": "xat:block/teddy_bear_twilight",
+      "y": 180
+    },
+    "facing=west,variant=twilight": {
+      "model": "xat:block/teddy_bear_twilight",
+      "y": 270
+    },
+    "facing=east,variant=twilight": {
+      "model": "xat:block/teddy_bear_twilight",
+      "y": 90
+    },
+    "facing=north,variant=ryu": {
+      "model": "xat:block/teddy_bear_ryu"
+    },
+    "facing=south,variant=ryu": {
+      "model": "xat:block/teddy_bear_ryu",
+      "y": 180
+    },
+    "facing=west,variant=ryu": {
+      "model": "xat:block/teddy_bear_ryu",
+      "y": 270
+    },
+    "facing=east,variant=ryu": {
+      "model": "xat:block/teddy_bear_ryu",
+      "y": 90
+    },
+    "facing=north,variant=ken": {
+      "model": "xat:block/teddy_bear_ken"
+    },
+    "facing=south,variant=ken": {
+      "model": "xat:block/teddy_bear_ken",
+      "y": 180
+    },
+    "facing=west,variant=ken": {
+      "model": "xat:block/teddy_bear_ken",
+      "y": 270
+    },
+    "facing=east,variant=ken": {
+      "model": "xat:block/teddy_bear_ken",
+      "y": 90
+    },
+    "facing=north,variant=nyan": {
+      "model": "xat:block/teddy_bear_nyan"
+    },
+    "facing=south,variant=nyan": {
+      "model": "xat:block/teddy_bear_nyan",
+      "y": 180
+    },
+    "facing=west,variant=nyan": {
+      "model": "xat:block/teddy_bear_nyan",
+      "y": 270
+    },
+    "facing=east,variant=nyan": {
+      "model": "xat:block/teddy_bear_nyan",
+      "y": 90
+    },
+    "facing=north,variant=nyan_old": {
+      "model": "xat:block/teddy_bear_nyan_old"
+    },
+    "facing=south,variant=nyan_old": {
+      "model": "xat:block/teddy_bear_nyan_old",
+      "y": 180
+    },
+    "facing=west,variant=nyan_old": {
+      "model": "xat:block/teddy_bear_nyan_old",
+      "y": 270
+    },
+    "facing=east,variant=nyan_old": {
+      "model": "xat:block/teddy_bear_nyan_old",
+      "y": 90
+    },
+    "facing=north,variant=boom": {
+      "model": "xat:block/teddy_bear_boom"
+    },
+    "facing=south,variant=boom": {
+      "model": "xat:block/teddy_bear_boom",
+      "y": 180
+    },
+    "facing=west,variant=boom": {
+      "model": "xat:block/teddy_bear_boom",
+      "y": 270
+    },
+    "facing=east,variant=boom": {
+      "model": "xat:block/teddy_bear_boom",
+      "y": 90
+    },
+    "facing=north,variant=rixxi": {
+      "model": "xat:block/teddy_bear_rixxi"
+    },
+    "facing=south,variant=rixxi": {
+      "model": "xat:block/teddy_bear_rixxi",
+      "y": 180
+    },
+    "facing=west,variant=rixxi": {
+      "model": "xat:block/teddy_bear_rixxi",
+      "y": 270
+    },
+    "facing=east,variant=rixxi": {
+      "model": "xat:block/teddy_bear_rixxi",
+      "y": 90
+    },
+    "facing=north,variant=snowie": {
+      "model": "xat:block/teddy_bear_snowie"
+    },
+    "facing=south,variant=snowie": {
+      "model": "xat:block/teddy_bear_snowie",
+      "y": 180
+    },
+    "facing=west,variant=snowie": {
+      "model": "xat:block/teddy_bear_snowie",
+      "y": 270
+    },
+    "facing=east,variant=snowie": {
+      "model": "xat:block/teddy_bear_snowie",
+      "y": 90
+    }
+  }
+}

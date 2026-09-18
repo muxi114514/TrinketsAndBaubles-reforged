@@ -1,0 +1,128 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "xat:item/teddy_bear"
+  },
+  "display": {
+    "thirdPerson": {
+      "rotation": [
+        -90,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        1,
+        -3
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    },
+    "firstPerson": {
+      "rotation": [
+        0,
+        -135,
+        25
+      ],
+      "translation": [
+        0,
+        4,
+        2
+      ],
+      "scale": [
+        1.7,
+        1.7,
+        1.7
+      ]
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "xat:teddy": 0.01
+      },
+      "model": "xat:item/teddy_bear_rembos"
+    },
+    {
+      "predicate": {
+        "xat:teddy": 0.02
+      },
+      "model": "xat:item/teddy_bear_scary"
+    },
+    {
+      "predicate": {
+        "xat:teddy": 0.03
+      },
+      "model": "xat:item/teddy_bear_shivaxi"
+    },
+    {
+      "predicate": {
+        "xat:teddy": 0.04
+      },
+      "model": "xat:item/teddy_bear_bee"
+    },
+    {
+      "predicate": {
+        "xat:teddy": 0.05
+      },
+      "model": "xat:item/teddy_bear_panda"
+    },
+    {
+      "predicate": {
+        "xat:teddy": 0.06
+      },
+      "model": "xat:item/teddy_bear_artsy"
+    },
+    {
+      "predicate": {
+        "xat:teddy": 0.07
+      },
+      "model": "xat:item/teddy_bear_twilight"
+    },
+    {
+      "predicate": {
+        "xat:teddy": 0.08
+      },
+      "model": "xat:item/teddy_bear_ryu"
+    },
+    {
+      "predicate": {
+        "xat:teddy": 0.09
+      },
+      "model": "xat:item/teddy_bear_ken"
+    },
+    {
+      "predicate": {
+        "xat:teddy": 0.1
+      },
+      "model": "xat:item/teddy_bear_nyan"
+    },
+    {
+      "predicate": {
+        "xat:teddy": 0.11
+      },
+      "model": "xat:item/teddy_bear_nyan_old"
+    },
+    {
+      "predicate": {
+        "xat:teddy": 0.12
+      },
+      "model": "xat:item/teddy_bear_boom"
+    },
+    {
+      "predicate": {
+        "xat:teddy": 0.13
+      },
+      "model": "xat:item/teddy_bear_rixxi"
+    },
+    {
+      "predicate": {
+        "xat:teddy": 0.14
+      },
+      "model": "xat:item/teddy_bear_snowie"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SIS",
+    "IFI",
+    "SIS"
+  ],
+  "key": {
+    "F": {
+      "item": "minecraft:nether_star"
+    },
+    "S": {
+      "tag": "minecraft:wool"
+    },
+    "I": {
+      "item": "xat:glowing_gem"
+    }
+  },
+  "result": {
+    "item": "xat:inertia_null_stone"
+  }
+}

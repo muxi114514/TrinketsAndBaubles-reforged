@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#S#",
+    "SDS",
+    "#S#"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:dragon_egg"
+    },
+    "S": {
+      "tag": "minecraft:logs"
+    },
+    "#": {
+      "item": "xat:glowing_gem"
+    }
+  },
+  "result": {
+    "item": "xat:damage_shield"
+  }
+}

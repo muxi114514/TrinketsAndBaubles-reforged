@@ -1,0 +1,10 @@
+{
+  "values": [
+    "#minecraft:is_freezing",
+    "xat:dragon_ice",
+    {
+      "id": "iceandfire:dragon_ice",
+      "required": false
+    }
+  ]
+}
