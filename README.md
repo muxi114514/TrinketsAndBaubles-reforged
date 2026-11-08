@@ -24,7 +24,7 @@ These mods are all optional. When they're installed, the mod hooks into them:
 
 - **First Aid**: Hard Head (the Shield of Honor can save you from head shots) and Blessing of Life work with body parts
 - **Cold Sweat**: heat and cold immunity for fitting races and trinkets
-- **Simple Difficulty**: thirst and parasite immunity
+- **Simple Difficulty**: thirst and parasite immunity. When Simple Difficulty Reforge runs SimpleDifficulty's own temperature and thirst (without Cold Sweat / Thirst Was Taken), heat and cold immunity and the Stone of the Sea's thirst refill work with those, like they did on 1.12.2
 - **Thirst Was Taken**: the Stone of the Sea refills your thirst while you're in water
 - **Enhanced Visuals**: some trinkets block certain screen effects
 - **Elenai Dodge 2 / Talents**: their dodge (Sidestep) triggers the Arcing Orb's dodge effects

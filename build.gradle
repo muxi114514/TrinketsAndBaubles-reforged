@@ -93,7 +93,9 @@ dependencies {
     compileOnly fg.deobf(files('libs/ColdSweat-2.4.1.jar'))
     compileOnly fg.deobf(files('libs/ThirstWasTaken-1.20.1-1.4.0.jar'))
     compileOnly fg.deobf(files('libs/talents-1.0.4d.jar'))
-    // Elenai Dodge 2 与 Talents 的闪避经 @Pseudo mixin 按类名挂钩；Simple Difficulty / 恐怖生物 / 污秽之地 / 冰与火 / jlme
+    // Simple Difficulty Reforge: a build with its API (com.kettle.simpledifficultyreforged.api), used by SimpleDifficultyBridge
+    compileOnly fg.deobf(files('libs/simple_difficulty.jar'))
+    // Elenai Dodge 2 与 Talents 的闪避经 @Pseudo mixin 按类名挂钩；Simple Difficulty（效果）/ 恐怖生物 / 污秽之地 / 冰与火 / jlme
     // 只按注册名引用效果、伤害类型与附魔，无需编译依赖
 }
 

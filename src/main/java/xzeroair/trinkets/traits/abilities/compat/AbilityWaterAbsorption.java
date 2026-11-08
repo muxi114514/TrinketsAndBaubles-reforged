@@ -8,7 +8,6 @@ import xzeroair.trinkets.traits.abilities.Ability;
 import xzeroair.trinkets.traits.abilities.AbilityNames;
 import xzeroair.trinkets.traits.abilities.DescriptionVariables;
 import xzeroair.trinkets.traits.abilities.interfaces.ITickableAbility;
-import xzeroair.trinkets.util.compat.ModCompat;
 import xzeroair.trinkets.util.compat.survival.SurvivalCompat;
 import xzeroair.trinkets.util.config.abilities.ThirstAbsorptionAbilityConfig;
 
@@ -40,6 +39,6 @@ public class AbilityWaterAbsorption extends Ability implements ITickableAbility 
 
     @Override
     public String getCompatModId() {
-        return ModCompat.THIRST_WAS_TAKEN;
+        return SurvivalCompat.thirstModId();
     }
 }
