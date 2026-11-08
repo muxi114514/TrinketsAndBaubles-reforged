@@ -1,5 +1,7 @@
 package xzeroair.trinkets.capabilities.race;
 
+import net.minecraft.world.level.Level;
+import net.minecraft.resources.ResourceKey;
 import java.util.List;
 
 import javax.annotation.Nonnull;
@@ -315,6 +317,12 @@ public class EntityProperties extends CapabilityEntityBase<EntityProperties, Liv
 
     @Override
     public void onJoinWorld() {
+        this.scheduleResync();
+    }
+
+    /** 0.34.1: resend to the client after a dimension change (the client makes a new player then) */
+    @Override
+    public void onChangedDimension(ResourceKey<Level> from, ResourceKey<Level> to) {
         this.scheduleResync();
     }
 
