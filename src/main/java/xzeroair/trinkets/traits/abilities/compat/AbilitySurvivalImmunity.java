@@ -51,7 +51,12 @@ public class AbilitySurvivalImmunity extends Ability implements ITickableAbility
     @Override
     public void describe(DescriptionVariables variables) {
         switch (this.hazard) {
-            case HEAT, COLD -> variables.number("limit", SurvivalCompat.TEMPERATURE_LIMIT);
+            case HEAT, COLD -> {
+                // Cold Sweat line (core temperature limit) or Simple Difficulty line (temperature stays at Normal)
+                final boolean simpleDifficulty = SurvivalCompat.simpleDifficultyTemperature() && !ModCompat.coldSweat();
+                variables.number("limit", !simpleDifficulty, SurvivalCompat.TEMPERATURE_LIMIT);
+                variables.flag("sd", simpleDifficulty);
+            }
             case THIRST -> variables.effects("effect", true, List.of(ModCompat.SIMPLE_DIFFICULTY + ":thirsty"), false);
             case PARASITES -> variables.effects("effect", true, List.of(ModCompat.SIMPLE_DIFFICULTY + ":parasites"), false);
         }
@@ -59,6 +64,6 @@ public class AbilitySurvivalImmunity extends Ability implements ITickableAbility
 
     @Override
     public String getCompatModId() {
-        return this.hazard == Hazard.HEAT || this.hazard == Hazard.COLD ? ModCompat.COLD_SWEAT : ModCompat.SIMPLE_DIFFICULTY;
+        return this.hazard == Hazard.HEAT || this.hazard == Hazard.COLD ? SurvivalCompat.temperatureModId() : ModCompat.SIMPLE_DIFFICULTY;
     }
 }

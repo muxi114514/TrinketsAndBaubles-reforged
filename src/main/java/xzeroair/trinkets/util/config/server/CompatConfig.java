@@ -36,7 +36,7 @@ public class CompatConfig {
                 "Talents: the Sidestep skill triggers the Arcing Orb dodge effects instead of the double-tap dodge");
         this.coldSweat = define(builder, "coldSweat", "cold_sweat", "Cold Sweat: heat and cold immunities");
         this.simpleDifficulty = define(builder, "simpleDifficulty", "simple_difficulty",
-                "Simple Difficulty: thirst and parasite immunities; its Flight effect takes over creative flight");
+                "Simple Difficulty: thirst and parasite immunities; heat/cold immunity and Water Absorption with its own temperature and thirst; its Flight effect takes over creative flight");
         this.thirstWasTaken = define(builder, "thirstWasTaken", "thirst_was_taken", "Thirst Was Taken: Water Absorption");
         this.enhancedVisuals = define(builder, "enhancedVisuals", "enhanced_visuals", "Enhanced Visuals: clear vision abilities");
         this.lycanitesMobs = define(builder, "lycanitesMobs", "lycanites_mobs", "Lycanites Mobs: Weightless blocks the Weight effect");

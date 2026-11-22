@@ -24,7 +24,7 @@ public class CapabilityProviderBase<H extends ITrinketCapability<?>> implements 
 
     protected final Capability<H> capability;
     protected final H handler;
-    protected final LazyOptional<H> optional;
+    protected LazyOptional<H> optional;
 
     public CapabilityProviderBase(final Capability<H> capability, final H handler) {
         this.capability = capability;
@@ -35,7 +35,14 @@ public class CapabilityProviderBase<H extends ITrinketCapability<?>> implements 
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
-        return cap == this.capability ? this.optional.cast() : LazyOptional.empty();
+        if (cap != this.capability) {
+            return LazyOptional.empty();
+        }
+        // 0.34.1: recreated after invalidate(), so a capability that was invalidated (dimension change, respawn) still answers
+        if (!this.optional.isPresent()) {
+            this.optional = LazyOptional.of(() -> this.handler);
+        }
+        return this.optional.cast();
     }
 
     @Override

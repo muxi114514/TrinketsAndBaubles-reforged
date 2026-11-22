@@ -1,5 +1,7 @@
 package xzeroair.trinkets.capabilities.magic;
 
+import net.minecraft.world.level.Level;
+import net.minecraft.resources.ResourceKey;
 import java.util.UUID;
 
 import javax.annotation.Nonnull;
@@ -223,6 +225,12 @@ public class MagicStats extends CapabilityEntityBase<MagicStats, LivingEntity> {
 
     @Override
     public void onJoinWorld() {
+        this.sendInformationToPlayer();
+    }
+
+    /** 0.34.1: resend to the client after a dimension change (the client makes a new player then) */
+    @Override
+    public void onChangedDimension(ResourceKey<Level> from, ResourceKey<Level> to) {
         this.sendInformationToPlayer();
     }
 

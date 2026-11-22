@@ -3,6 +3,9 @@ package xzeroair.trinkets.client;
 import javax.annotation.Nullable;
 
 import net.minecraft.client.Minecraft;
+import xzeroair.trinkets.network.SyncPlayerDataPacket;
+import xzeroair.trinkets.capabilities.Capabilities;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -44,8 +47,22 @@ public class ClientPacketHandler {
             final EntityProperties properties = EntityProperties.get(living);
             if (properties != null) {
                 properties.loadFromNBT(packet.getTag());
+                // 0.34.1: apply the new race size right away
+                living.refreshDimensions();
             }
         }
+    }
+
+    /** 0.34.1: the local player's own race data (login, respawn, dimension change) */
+    public static void handlePlayerData(SyncPlayerDataPacket packet) {
+        final LocalPlayer player = Minecraft.getInstance().player;
+        if (player == null) {
+            return;
+        }
+        player.getCapability(Capabilities.ENTITY_PROPERTIES).ifPresent(data -> {
+            data.loadFromNBT(packet.getTag());
+            player.refreshDimensions();
+        });
     }
 
     /**

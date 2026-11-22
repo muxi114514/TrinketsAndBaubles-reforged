@@ -1,5 +1,6 @@
 package xzeroair.trinkets.events;
 
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.GameRules;
@@ -10,6 +11,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import xzeroair.trinkets.capabilities.magic.MagicStats;
 import xzeroair.trinkets.capabilities.race.EntityProperties;
+import xzeroair.trinkets.network.PlayerDataSync;
 
 /**
  * 驱动实体能力的生命周期（Forge 事件总线）。
@@ -50,27 +52,40 @@ public class CapabilityEventHandler {
         }
     }
 
+    /** 0.34.1: after a dimension change the client has a new player, so resend the race data and mana */
     @SubscribeEvent
-    public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
-        final EntityProperties properties = EntityProperties.get(event.getEntity());
-        if (properties != null) {
-            properties.onLogin();
+    public void onChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer player)) {
+            return;
         }
-    }
-
-    @SubscribeEvent
-    public void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
-        final EntityProperties properties = EntityProperties.get(event.getEntity());
-        if (properties != null) {
-            properties.onLogoff();
-        }
-    }
-
-    @SubscribeEvent
-    public void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
-        final EntityProperties properties = EntityProperties.get(event.getEntity());
+        final EntityProperties properties = EntityProperties.get(player);
         if (properties != null) {
             properties.onChangedDimension(event.getFrom(), event.getTo());
+            PlayerDataSync.sync(player);
+        }
+        final MagicStats magic = MagicStats.get(player);
+        if (magic != null) {
+            magic.onChangedDimension(event.getFrom(), event.getTo());
+        }
+    }
+
+    /** 0.34.1: refresh the player's size for their race and send their data on login */
+    @SubscribeEvent
+    public void onLogin(PlayerEvent.PlayerLoggedInEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player) {
+            final EntityProperties properties = EntityProperties.get(player);
+            if (properties != null) {
+                player.refreshDimensions();
+            }
+            PlayerDataSync.sync(player);
+        }
+    }
+
+    /** 0.34.1: send the player's data again after respawning */
+    @SubscribeEvent
+    public void onRespawn(PlayerEvent.PlayerRespawnEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player) {
+            PlayerDataSync.sync(player);
         }
     }
 

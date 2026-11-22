@@ -6,7 +6,8 @@
     "refmap": "${mod_id}.refmap.json",
     "mixins": [
         "compat.ElenaiDodgeEffectsMixin",
-        "compat.TalentsDodgeMixin"
+        "compat.TalentsDodgeMixin",
+        "EntityPoseMixin"
     ],
     "client": [
         "client.CameraMixin"

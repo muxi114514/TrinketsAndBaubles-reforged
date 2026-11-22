@@ -19,11 +19,11 @@ public class SurvivalConfig {
                 .translation("xat.config.survival")
                 .push("survival");
         this.immuneToHeat = builder
-                .comment("Immune to overheating (Cold Sweat)")
+                .comment("Immune to overheating (Cold Sweat, or Simple Difficulty's own temperature)")
                 .translation("xat.config.survival.heat")
                 .define("immuneToHeat", heat);
         this.immuneToCold = builder
-                .comment("Immune to freezing (Cold Sweat)")
+                .comment("Immune to freezing (Cold Sweat, or Simple Difficulty's own temperature)")
                 .translation("xat.config.survival.cold")
                 .define("immuneToCold", cold);
         this.immuneToThirst = builder

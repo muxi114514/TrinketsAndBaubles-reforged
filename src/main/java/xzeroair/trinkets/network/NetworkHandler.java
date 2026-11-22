@@ -100,6 +100,8 @@ public class NetworkHandler {
                 .decoder(UpdateRaceProfilePacket::new)
                 .consumerMainThread(UpdateRaceProfilePacket::handle)
                 .add();
+        // 0.34.1: the local player's own race data (login, respawn, dimension change)
+        CHANNEL.registerMessage(packetId++, SyncPlayerDataPacket.class, SyncPlayerDataPacket::encode, SyncPlayerDataPacket::decode, SyncPlayerDataPacket::handle);
         // 触及距离包（1.12 IncreasedReachPacket）不移：1.20.1 由 ForgeMod.ENTITY_REACH 属性原生处理
     }
 
