@@ -17,6 +17,8 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import xzeroair.trinkets.capabilities.race.EntityProperties;
+import xzeroair.trinkets.entity.AlphaWolf;
+import xzeroair.trinkets.entity.ai.EnderQueens;
 import xzeroair.trinkets.races.EntityRacePropertiesHandler;
 import xzeroair.trinkets.traits.AbilityDispatcher;
 import xzeroair.trinkets.traits.abilities.interfaces.IAttackAbility;
@@ -209,6 +211,11 @@ public class CombatHandler {
 
     @SubscribeEvent
     public void onExperienceDrop(LivingExperienceDropEvent event) {
+        // 召唤物（末影女王的骑士、阿尔法狼）不掉经验，同 1.12
+        if (isSummoned(event.getEntity())) {
+            event.setDroppedExperience(0);
+            return;
+        }
         final LivingEntity killer = event.getAttackingPlayer();
         if (killer == null) {
             return;
@@ -222,6 +229,11 @@ public class CombatHandler {
 
     @SubscribeEvent
     public void onLivingDrops(LivingDropsEvent event) {
+        // 召唤物不掉物品，同 1.12
+        if (isSummoned(event.getEntity())) {
+            event.getDrops().clear();
+            return;
+        }
         final LivingEntity killer = attackerOf(event.getSource());
         if (killer == null) {
             return;
@@ -239,6 +251,11 @@ public class CombatHandler {
         } else {
             event.setAmount(damage);
         }
+    }
+
+    /** 1.12 的 xat:summoned 标记（末影女王的骑士、被控制的生物）；阿尔法狼本身就是召唤出来的坐骑 */
+    private static boolean isSummoned(LivingEntity entity) {
+        return entity instanceof AlphaWolf || entity.getPersistentData().getBoolean(EnderQueens.SUMMONED_TAG);
     }
 
     @Nullable
