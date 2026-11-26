@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "xat:dragon_lightning"
+    "xat:dragon_lightning",
+    {
+      "id": "iceandfire:dragon_lightning",
+      "required": false
+    }
   ]
 }
